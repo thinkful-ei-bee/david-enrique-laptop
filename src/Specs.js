@@ -7,15 +7,13 @@ export default class Specs extends React.Component {
 
     render(){
       return  (
-        <div>
         <section className="main__form">
        <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-      
-       <Select updateFeature={this.props.updateFeature} />
+       <Select />
+       <Select />
+       <Select />
+       <Select />
      </section>
-       
-
-   </div>
         )
     }
    

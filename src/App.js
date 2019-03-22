@@ -128,6 +128,32 @@ class App extends Component {
     });
   }
 
+  swapSelection(feature) {
+    console.log(feature);
+    const featureArr = this.state.FEATURES2[feature];
+    const newArr = featureArr.map(item => {
+      let {name, cost, selected} = item;
+      selected = !selected;
+      return {
+        name,
+        cost,
+        selected
+      }
+    });
+    const featureNames = ['Processor', 'Operating System', 'Video Card', 'Display'];
+    const unmodified = featureNames.filter(ele => ele !== feature);
+    const newObj = {};
+    for (let i = 0; i<unmodified.length; i++) {
+      newObj[unmodified[i]] = this.state.FEATURES2[unmodified[i]];
+    }
+    newObj[feature] = newArr;
+
+    this.setState({
+      FEATURES2: newObj
+    });
+
+  }
+
   render() {
     const summary = Object.keys(this.state.selected)
           .map(key => <div className="summary__option" key={key}>
@@ -151,7 +177,7 @@ class App extends Component {
               return <li key={index} className="feature__item">
                 <div className={featureClass}
                   
-                  onClick={e => this.updateFeature(key, item)}>
+                  onClick={e => /*this.swapSelection(key)*/this.updateFeature(key, item)}>
                     { item.name }
                     ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
                       .format(item.cost) })
