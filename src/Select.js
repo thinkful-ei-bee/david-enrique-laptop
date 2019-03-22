@@ -28,12 +28,14 @@ return <li key={index} className="feature__item">
         <ul className="feature__list" onClick={() => this.props.swapSelect(feature)}>
           <li className="feature__item">
             <div className={firstClass}>
-            {details[0].name}({details[0].cost})
+            {details[0].name}({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
+                      .format(details[0].cost) })
             </div>
           </li>
           <li>
           <div className={secondClass}>
-            {details[1].name}({details[1].cost})
+            {details[1].name}({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
+                      .format(details[1].cost) })
             </div>
           </li>
         </ul>
