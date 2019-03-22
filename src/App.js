@@ -59,10 +59,7 @@ class App extends Component {
       },
     }
   
-
-
   swapSelect = feature => {
-    console.log(feature);
     const featureArr = this.state.FEATURES2[feature];
     const newArr = featureArr.map(item => {
       let {name, cost, selected} = item;
@@ -73,6 +70,7 @@ class App extends Component {
         selected
       }
     });
+    
     const featureNames = ['Processor', 'Operating System', 'Video Card', 'Display'];
     const unmodified = featureNames.filter(ele => ele !== feature);
     const newObj = {};
@@ -93,9 +91,7 @@ class App extends Component {
         <Header/>
         <main>
           <Specs features={this.state.FEATURES2} swapSelect={this.swapSelect}></Specs>
-         
-        <Price features={this.state.FEATURES2}/>
-
+          <Price features={this.state.FEATURES2}/>
         </main>
       </div>
     );
