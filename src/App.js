@@ -7,6 +7,56 @@ import Price from './Price';
 class App extends Component {
   
     state = {
+      FEATURES2: {
+        Processor: [
+          {
+            name: '17th Generation Intel Core HB (7 Core with donut spare)',
+            cost: 700,
+            selected: true
+          },
+          {
+            name: 'Professor X AMD Fire Breather with sidewinder technology',
+            cost: 1200,
+            selected: false
+          }
+        ],
+        "Operating System": [
+          {
+            name: 'Ubuntu Linux 16.04',
+            cost: 200,
+            selected: true
+          },
+          {
+            name: 'Bodhi Linux',
+            cost: 300,
+            selected: false
+          }
+        ],
+        "Video Card": [
+          {
+            name: 'Toyota Corolla 1.5v',
+            cost: 1150.98,
+            selected: true
+          },
+          {
+            name: 'Mind mild breeze 2000',
+            cost: 1345,
+            selected: false
+          }
+        ],
+        Display: [
+          {
+            name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
+            cost: 1500,
+            selected: true
+          },
+          {
+            name: '15.3" HGTV (3840 x 2160) Home makeover edition',
+            cost: 1400,
+            selected: false
+          },
+        ]
+      },
       selected: {
         Processor: {
             name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -123,8 +173,8 @@ class App extends Component {
 
         <Header/>
         <main>
-          <Specs features={this.state.FEATURES} selected={this.state.selected} updateFeature= {this.updateFeature} />
-          
+         {//} <Specs features={this.state.FEATURES} selected={this.state.selected} updateFeature= {this.updateFeature} />
+         }
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
