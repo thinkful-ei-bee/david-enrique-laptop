@@ -128,7 +128,7 @@ class App extends Component {
     });
   }
 
-  swapSelection(feature) {
+  swapSelect = feature => {
     console.log(feature);
     const featureArr = this.state.FEATURES2[feature];
     const newArr = featureArr.map(item => {
@@ -177,7 +177,7 @@ class App extends Component {
               return <li key={index} className="feature__item">
                 <div className={featureClass}
                   
-                  onClick={e => /*this.swapSelection(key)*/this.updateFeature(key, item)}>
+                  onClick={e => this.swapSelect(key)/*this.updateFeature(key, item)*/}>
                     { item.name }
                     ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
                       .format(item.cost) })
@@ -201,10 +201,11 @@ class App extends Component {
         <main>
          {//} <Specs features={this.state.FEATURES} selected={this.state.selected} updateFeature= {this.updateFeature} />
          }
-          <section className="main__form">
+          {/* <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
-          </section>
+          </section> */}
+          <Specs features={this.state.FEATURES2} swapSelect={this.swapSelect}></Specs>
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             {summary}

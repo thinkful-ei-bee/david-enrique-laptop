@@ -4,21 +4,6 @@ import './Select.css';
 export default class Select extends React.Component {
   
   /* 
-    Processor: [
-          {
-            name: '17th Generation Intel Core HB (7 Core with donut spare)',
-            cost: 700,
-            selected: true
-          },
-          {
-            name: 'Professor X AMD Fire Breather with sidewinder technology',
-            cost: 1200,
-            selected: false
-          }
-        ],  
-
-<Select feature="Processor" details=[{}, {}]>
-
 return <li key={index} className="feature__item">
                 <div className={featureClass}
                   
@@ -40,7 +25,7 @@ return <li key={index} className="feature__item">
     return (
       <div className="feature">
         <div className="feature__name">{feature}</div>
-        <ul className="feature__list">
+        <ul className="feature__list" onClick={() => this.props.swapSelect(feature)}>
           <li className="feature__item">
             <div className={firstClass}>
             {details[0].name}({details[0].cost})
