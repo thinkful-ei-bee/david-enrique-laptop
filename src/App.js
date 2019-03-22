@@ -123,6 +123,8 @@ class App extends Component {
 
         <Header/>
         <main>
+          <Specs features={this.state.FEATURES} selected={this.state.selected} updateFeature= {this.updateFeature} />
+          
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
