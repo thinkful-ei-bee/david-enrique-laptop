@@ -2,40 +2,58 @@ import React from 'react';
 import './Select.css';
 
 export default class Select extends React.Component {
-
-
   
   /* 
-  feature {
-    name:
-    option1: {
-      name:
-      cost:
-    }
-    option2: {
-      name:
-      cost:
-    }
-  }
+    Processor: [
+          {
+            name: '17th Generation Intel Core HB (7 Core with donut spare)',
+            cost: 700,
+            selected: true
+          },
+          {
+            name: 'Professor X AMD Fire Breather with sidewinder technology',
+            cost: 1200,
+            selected: false
+          }
+        ],  
 
-  selected: 0 or 1 or 'option1' or 'option2'
+<Select feature="Processor" details=[{}, {}]>
+
+return <li key={index} className="feature__item">
+                <div className={featureClass}
+                  
+                  onClick={e => this.swapSelection(key)this.updateFeature(key, item)}>
+                  { item.name }
+                  ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
+                    .format(item.cost) })
+              </div>
+            </li>
+
   */
   
-
   render(){
-    console.log(this.props)
     const feature = this.props.feature;
-    const selected = this.props.selected;
-    return (<div></div>);
+    const details = this.props.details;
+    const firstClass = details[0].selected ? 'feature__option feature__selected' : 'feature__option';
+    const secondClass = details[1].selected ? 'feature__option feature__selected' : 'feature__option';
+
+    return (
+      <div className="feature">
+        <div className="feature__name">{feature}</div>
+        <ul className="feature__list">
+          <li className="feature__item">
+            <div className={firstClass}>
+            {details[0].name}({details[0].cost})
+            </div>
+          </li>
+          <li>
+          <div className={secondClass}>
+            {details[1].name}({details[1].cost})
+            </div>
+          </li>
+        </ul>
+      </div>
+    );
     }
   }
-
-    // const feature = this.props.feature;
-    // const components =this.props.components;
-
-    // const component = components[feature];
-    // const index = Object.keys(components).find(feature);
-
-    // const selectedClass = feature.name === this.state.selected[key].name ? 'feature__selected' : '';
-    //           const featureClass = 'feature__option ' + selectedClass;
 
